@@ -19,26 +19,26 @@ The installation/configuration process has 4 stages:
 
 - Nodes where OSDs will run MUST have at least a separate volume. More volumes are also accepted and formatted/mounted by the script.
 - These will be formatted as XFS, and mounted as `/dcos/volumeX` for Mesos - DC/OS to use
-- Follow/execute the instructions in the file [ceph-nodes](./1-ceph_nodes.sh) on each node of the cluster
+- Follow/execute the instructions in the file [ceph-nodes](https://github.com/fernandosanchezmunoz/dcos-ceph/blob/master/1-ceph_nodes.sh) on each node of the cluster
 
 ## 2 - Configure and launch the Ceph-on-mesos framework
 
 - This can be executed from the DC/OS bootstrap node or from any node in the cluster
 - As a prerequisite, the node MUST have a working DC/OS CLI, and be connected to Mesos-DNS for \*.mesos address resolution
-- Follow/execute the instructions in the file [ceph-boot](./2-ceph_boot.sh) on each node of the cluster
+- Follow/execute the instructions in the file [ceph-boot](https://github.com/fernandosanchezmunoz/dcos-ceph/blob/master/2-ceph_boot.sh) on each node of the cluster
 
 ## 3 - Configure and launch the components of the Ceph Framework from the framework's UI
 
 - This requires Marathon-LB to be installed in your DC/OS cluster
 - Open up the Ceph config page at http://your_public_node:15000
-- Follow/execute the instructions in the file [ceph-config](./3-ceph_config.sh) on each node of the cluster
+- Follow/execute the instructions in the file [ceph-config](https://github.com/fernandosanchezmunoz/dcos-ceph/blob/master/3-ceph_config.txt) on each node of the cluster
 
 ## 4 - Configure the node(s) to be used as Ceph consumers
 
 - Once the Ceph cluster is up, the last step is to configure the Ceph client side on the nodes that will consume volumes from Ceph
 - These can be the cluster's own nodes (for example, to create a `/mnt/ceph/volumeX` in the cluster nodes that can be used for storage backend of containers)
 - Nodes need to be in the same subnet as the Ceph nodes.
-- Follow/execute the instructions in the file [ceph-consumer](./4-ceph_consumer.sh) on each node of the cluster.
+- Follow/execute the instructions in the file [ceph-consumer](https://github.com/fernandosanchezmunoz/dcos-ceph/blob/master//4-ceph_consumer.sh) on each node of the cluster.
 
 
 # Acknowledgements

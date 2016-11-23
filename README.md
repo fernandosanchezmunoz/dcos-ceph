@@ -43,4 +43,4 @@ The installation/configuration process has 4 stages:
 
 # Acknowledgements
 
-This is a very simple set of instructions to adapt the much more complex, and excellent work done by [Tim Harper](https://github.com/timcharper) on a great [Ceph-on-Mesos framework](https://github.com/vivint-smarthome/ceph-on-mesos). Also he was patient enough to provide instructions and guidance while this was being prepared. Hat tip to him!
+This is a very simple set of instructions to adapt the excellent (and WAY more complex!) work done by [Tim Harper](https://github.com/timcharper) on a great [Ceph-on-Mesos framework](https://github.com/vivint-smarthome/ceph-on-mesos). Also he was patient enough to provide instructions and guidance while this was being prepared. Hat tip to him!

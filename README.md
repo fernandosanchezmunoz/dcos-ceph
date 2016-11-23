@@ -2,7 +2,7 @@
 
 # Ceph on DC/OS
 
-This is a set of scripts and instructions to get the excellent [Ceph-on-Mesos framework](https://github.com/vivint-smarthome/ceph-on-mesos) running on a DC/OS 1.8 cluster.
+This is a set of scripts and instructions to get the excellent [Ceph-on-Mesos framework](https://github.com/vivint-smarthome/ceph-on-mesos) by [Tim Harper](https://github.com/timcharper) running on a DC/OS 1.8 cluster.
 
 This has been tested initially on a cluster running Open DC/OS v1.8.7 composed of nodes running CentOS 7.2. This may work with other setups but your mileage may vary.
 
@@ -33,7 +33,14 @@ The process has 4 parts
 - Open up the Ceph config page at http://your_public_node:15000
 - Follow/execute the instructions in the file [ceph-config](./3-ceph_config.sh) on each node of the cluster
 
-## 4 - Configure the node(s) to be used as Ceph consumer -- that will mount the volumes provided by Ceph
+## 4 - Configure the node(s) to be used as Ceph consumers
 
-- Nodes need to be in the same subnet as the Ceph nodes
-- Follow/execute the instructions in the file [ceph-consumer](./4-ceph_consumer.sh) on each node of the cluster
+- Once the Ceph cluster is up, the last step is to configure the Ceph client side on the nodes that will consume volumes from Ceph
+- These can be the cluster's own nodes (for example, to create a `/mnt/ceph/volumeX` in the cluster nodes that can be used for storage backend of containers)
+- Nodes need to be in the same subnet as the Ceph nodes.
+- Follow/execute the instructions in the file [ceph-consumer](./4-ceph_consumer.sh) on each node of the cluster.
+
+
+# Acknowledgements
+
+This is a very simple set of instructions to adapt the much more complex, and excellent work done by [Tim Harper](https://github.com/timcharper) on a great [Ceph-on-Mesos framework](https://github.com/vivint-smarthome/ceph-on-mesos). Also he was patient enough to provide instructions and guidance while this was being prepared. Hat tip to him!

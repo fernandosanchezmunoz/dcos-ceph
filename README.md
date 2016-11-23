@@ -13,7 +13,7 @@ This has been tested initially on a cluster running Open DC/OS v1.8.7 composed o
   * As an example, this can be achieved in AWS EC2 by just adding a second volume to each instance before installing.
 - A node in the cluster with a working DC/OS CLI, and connected to Mesos-DNS for \*.mesos address resolution
 
-The process has 4 parts
+The installation/configuration process has 4 stages:
 
 ## 1 - Configure/format the DC/OS agents that will run the Ceph OSDs 
 

@@ -2,7 +2,7 @@
 
 ![DC/OS Logo](https://acomblogimages.blob.core.windows.net/media/Default/Windows-Live-Writer/dcoslogo.png)
 
-![Ceph Logo](/http://ceph.com/wp-content/uploads/2012/11/Ceph_Logo_Stacked_RGB_120411_fa.png)
+![Ceph Logo](http://www.open-v.net/images/openv/o3/icons/ceph.png)
 
 This is a set of scripts and instructions to get the excellent Ceph-on-Mesos framework [ceph-on-mesos](https://github.com/vivint-smarthome/ceph-on-mesos) running on a DC/OS 1.8 cluster.
 

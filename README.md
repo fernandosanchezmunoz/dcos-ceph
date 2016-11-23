@@ -9,6 +9,7 @@ This has been tested initially on a cluster running Open DC/OS v1.8.7 composed o
 ## Prerequisites
 
 - A running DC/OS v1.8 cluster
+- NTP (or an equivalent time synch service) needs to be running in all nodes of the cluster
 - All nodes in the cluster that will be part of the Ceph installation MUST have a separate volume for Ceph OSDs to use
   * As an example, this can be achieved in AWS EC2 by just adding a second volume to each instance before installing.
 - A node in the cluster with a working DC/OS CLI, and connected to Mesos-DNS for \*.mesos address resolution

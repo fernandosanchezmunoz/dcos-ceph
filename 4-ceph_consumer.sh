@@ -115,12 +115,16 @@ yum install -y ceph
 # USE IT!: use RBD to map and mount the remote volume
 ############################################################
 
-rbd create --size=1G test
-rbd map test
-#/dev/rbd0
-mkdir -p /mnt/ceph
-mount /dev/rbd0 /mnt/ceph
+VOLUME_NAME="test"
+VOLUME_MOUNT_PATH="/mnt/ceph"
+rbd create --size=1G $VOLUME_NAME
+VOLUME_DEV=$( rbd map $VOLUME_NAME )
+#Expected output: "/dev/rbd0"
+mkfs.xfs -f $VOLUME_DEV
+mkdir -p $VOLUME_MOUNT_PATH
+mount $VOLUME_DEV $VOLUME_MOUNT_PATH
 
-cd /mnt/ceph/
+cd $VOLUME_MOUNT_PATH
 touch "DOES_THIS_WORK_-_RIGHT_ON"
 ls
+

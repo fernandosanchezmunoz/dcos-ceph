@@ -7,6 +7,7 @@
 # Can be a bootstrap node or any other node in the cluster that has DC/OS CLI
 # Assumes this node is in the same subnet used for Ceph
 # Assumes this node uses Mesos-DNS and ping leader.mesos works!!!
+# Assumes that the "default gateway" interface will be used for Ceph too
 # Each section of this file can be copied and pasted on a node that will
 # launch the Ceph framework with the DC/OS CLI
 ######################################################################

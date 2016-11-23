@@ -6,7 +6,6 @@
 # This should be executed on a node that is part of the same network.
 # Can be a bootstrap node or any other node in the cluster that has DC/OS CLI
 # Assumes this node is in the same subnet used for Ceph
-# Assumes this node has a working DC/OS CLI.
 # Assumes this node uses Mesos-DNS and ping leader.mesos works!!!
 # Each section of this file can be copied and pasted on a node that will
 # launch the Ceph framework with the DC/OS CLI
@@ -18,8 +17,16 @@
 
 # 0.0
 # DC/OS CLI
+CLI_DOWNLOAD_URL="https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.8/dcos"
+echo -e "** Installing DC/OS CLI..."
+curl -fLsS --retry 20 -Y 100000 -y 60 $CLI_DOWNLOAD_URL -o dcos &&
+ sudo mv dcos /usr/bin &&
+ sudo chmod +x /usr/bin/dcos &&
+ dcos config set core.dcos_url https://leader.mesos &&
+ dcos config set core.ssl_verify false &&
+ dcos
 dcos auth login
-dcos node
+
 
 # 0.1
 # Marathon-LB installed and working

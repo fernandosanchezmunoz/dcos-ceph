@@ -8,7 +8,7 @@
 
 # 0
 # configuration of the ceph cluster is done from the Web UI
-# go to http://awpublic:15000
+# go to http://YOUR_PUBLIC_NODE:15000
 
 # 1
 # Launch Ceph Monitors

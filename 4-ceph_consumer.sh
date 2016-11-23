@@ -23,14 +23,14 @@ chmod +x ./jq
 cp jq /usr/bin
 
 # 0.2 find out the HOST network.
-# This is the same HOST network used in the bootstrap node to install and launch the Ceph framework
-# can be copied from it. Alternatively, the steps used to calculate it in the bootstrap should also work.
-# On bootstrap:
+# This is the same HOST network used in [step 2] to install and launch the Ceph framework, and can directly
+# can be copied from that node. Alternatively, the steps used in [step 2] to calculate it in the bootstrap should also work.
+# On the node used to launch the framework:
 echo $HOST_NETWORK
 # example OUTPUT:
 #  172.31.0.0/20
 # on this node
-export $HOST_NETWORK=172.31.0.0/20  #change to your specific output
+export HOST_NETWORK=172.31.0.0/20  #change to your specific output
 
 # 1
 # Create CEPH.conf
@@ -43,8 +43,7 @@ export $HOST_NETWORK=172.31.0.0/20  #change to your specific output
 # go to "ceph-on-mesos", click on "secrets.json" -- copy the entire "Data as String" available at the bottom. Example:
 # {"fsid":"d8e57f50-c26f-43d6-b678-95640beb27f4","adminRing":"AQC6/TRYdsbZhhAAzzQfp8a1HVS5N+PDRzQXMg==","monRing":"AQC6/TRY/vZ+hxAA6GClC+goMWh/zFunwhd8WA==","mdsRing":"AQC6/TRYm4x/hxAA5snbgMzzu8pjgtS0cADxiQ==","osdRing":"AQC6/TRYWkuAhxAAlqc4OYu4T9hL9TT83F+yng==","rgwRing":"AQC6/TRYSAGBhxAAEo5N3oey9ekU99tWEQOjAw=="}
 # export it in the node where you want ceph installed
-# export SECRETS='{<paste JSON blob here>}'
-export SECRETS='{"fsid":"d7170dac-ea14-4668-8a72-017172c13075","adminRing":"AQCtvjVYcOTitRAAGSArjCyokh+n+WiR18z98g==","monRing":"AQCtvjVYP6UbtxAASVpcU10wz/qmuf+dkQE5wA==","mdsRing":"AQCtvjVYyJYctxAAC38oVQspyO0Z1lRxWHJW1g==","osdRing":"AQCtvjVYSJ8dtxAA6ymsbHSgcmaLQvv7cVgp+g==","rgwRing":"AQCtvjVY9ZoetxAAeLy2U1S9COB5PfJ78tUW6g=="}'
+export SECRETS='{<paste JSON blob here>}'
 #check that the FSID was correctly parsed
 echo "$SECRETS" |jq .fsid
 # EXAMPLE OUTPUT:
@@ -90,7 +89,7 @@ EOF
 
 cat <<-EOF > /etc/ceph/ceph.client.admin.keyring
 [client.admin]
-  key = $(echo "$SECRETS" | jq .monRing -r)
+  key = $(echo "$SECRETS" | jq .adminRing -r)
   auid = 0
   caps mds = "allow"
   caps mon = "allow *"
@@ -98,15 +97,15 @@ cat <<-EOF > /etc/ceph/ceph.client.admin.keyring
 EOF
 
 # 4
-# INSTALL CEPH FROM REPOS
-##############################
+# Install Ceph from the normal repos
+####################################
 
 rpm --rebuilddb  #sometimes the dB needs this after install
 yum install -y centos-release-ceph-jewel
 yum install -y ceph
 
 # 6
-# check ceph is working. need to use the system python packages
+# Check ceph is working. Need to use the system's python packages
 ###############################################################
 
 /bin/python /bin/ceph mon getmap -o /etc/ceph/monmap-ceph
@@ -123,5 +122,5 @@ mkdir -p /mnt/ceph
 mount /dev/rbd0 /mnt/ceph
 
 cd /mnt/ceph/
-touch "RIGHT_ON"
+touch "DOES_THIS_WORK_-_RIGHT_ON"
 ls

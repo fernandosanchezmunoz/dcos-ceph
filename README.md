@@ -8,7 +8,7 @@ This has been tested initially on a cluster running Open DC/OS v1.8.7 composed o
 
 ## Prerequisites
 
-- A running DC/OS v1.8 cluster
+- A running DC/OS v1.8 cluster with AT LEAST 3 PRIVATE AGENTS. Ceph-on-Mesos REQUIRES at least 3 nodes to install monitors and OSDs on for a quorum.
 - NTP (or an equivalent time synch service) needs to be running in all nodes of the cluster
 - All nodes in the cluster that will be part of the Ceph installation MUST have a separate volume for Ceph OSDs to use
   * As an example, this can be achieved in AWS EC2 by just adding a second volume to each instance before installing.

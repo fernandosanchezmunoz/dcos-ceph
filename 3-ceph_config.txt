@@ -17,11 +17,9 @@
 # 1.1
 # Configure and launch
 # In Ceph's web UI, "Config", modify to add **monitors** for each node, wait until they're all running
-# TODO: WHAT HAPPENS IF I ADD MORE MONITORS THAN NODES IN THE CLUSTER?
-# TODO: Can we run only on private slaves? Or also public?
 
 #change mon {
-count = 3         #??? number of (TODO:private?) slaves in the cluster
+count = 3         #number of private agents in the cluster
 cpus = 0.3
 
 # 1.2
@@ -43,8 +41,6 @@ curl leader.mesos:8123/v1/services/_mon._tcp.ceph.mesos | jq '. | map(.ip + ":" 
 # 2.1
 # Configure and launch
 # web UI, "Config", modify to add **OSDs** for each node, wait until they're all running
-# TODO: WHAT HAPPENS IF I ADD MORE OSDs THAN NODES IN THE CLUSTER?
-# TODO: Can we run only on private slaves? Or also public?
 
 #disk=16 is fine as a default value
 #osd{

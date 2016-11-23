@@ -17,8 +17,8 @@ The installation/configuration process has 4 stages:
 
 ## 1 - Configure/format the DC/OS agents that will run the Ceph OSDs 
 
-- Nodes where OSDs will run MUST have a separate volume
-- This will be formatted as XFS, and mounted as /dcos/volumeX for Mesos - DC/OS to use
+- Nodes where OSDs will run MUST have at least a separate volume. More volumes are also accepted and formatted/mounted by the script.
+- These will be formatted as XFS, and mounted as `/dcos/volumeX` for Mesos - DC/OS to use
 - Follow/execute the instructions in the file [ceph-nodes](./1-ceph_nodes.sh) on each node of the cluster
 
 ## 2 - Configure and launch the Ceph-on-mesos framework

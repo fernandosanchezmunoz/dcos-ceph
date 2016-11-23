@@ -33,7 +33,7 @@ The process has 4 parts
 - Open up the Ceph config page at http://your_public_node:15000
 - Follow/execute the instructions in the file [ceph-config](./3-ceph_config.sh) on each node of the cluster
 
-## 3 - Configure the node(s) to be used as Ceph consumer -- that will mount the volumes provided by Ceph
+## 4 - Configure the node(s) to be used as Ceph consumer -- that will mount the volumes provided by Ceph
 
 - Nodes need to be in the same subnet as the Ceph nodes
 - Follow/execute the instructions in the file [ceph-consumer](./4-ceph_consumer.sh) on each node of the cluster

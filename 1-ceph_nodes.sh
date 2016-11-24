@@ -20,8 +20,8 @@ sudo su    #need to run all this as root
 # Format the extra volume(s), and reset mesos-slave to pick them up
 
 # 1.1 PARAMETERS to MODIFY if desired to adapt to your installation:
-#LIST OF VOLUMES to format as XFS for ceph, SPACE separated as in: 
-#"/dev/hda /dev/hdb /dev/hdc"
+# LIST OF VOLUMES to format as XFS for ceph, SPACE separated as in: 
+# "/dev/hda /dev/hdb /dev/hdc"
 CEPH_DISKS="/dev/xvdb" 
 #just a name for the script below.
 CEPH_FDISK=ceph_fdisk_headless.sh 
@@ -71,4 +71,4 @@ cat /var/lib/dcos/mesos-resources | grep volume
 
 # DISKS ARE MOUNTED
 # Extra:
-systemctl start ntpd #noticed it tends to die and Ceph requires it.
+systemctl start ntpd  #make sure it's running

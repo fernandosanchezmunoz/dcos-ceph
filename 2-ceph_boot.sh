@@ -28,7 +28,6 @@ curl -fLsS --retry 20 -Y 100000 -y 60 $CLI_DOWNLOAD_URL -o dcos &&
  dcos
 dcos auth login
 
-
 # 0.1
 # Marathon-LB installed and working
 # NOTE: This is for OSS DC/OS, or EE DC/OS in "disabled" security mode
@@ -86,7 +85,6 @@ MESOS_MASTER="leader.mesos:5050"
 #determines the Framework version. Edit as appropriate
 DOWNLOAD_URI="https://dl.bintray.com/vivint-smarthome/ceph-on-mesos/ceph-on-mesos-0.2.9.tgz"
 
-
 # 3
 # Generate the Marathon JSON for the Ceph Framework with the values above
 #########################################################################
@@ -112,7 +110,6 @@ sudo cat >> ceph-dcos.json << EOF
     "MESOS_MASTER": "$MESOS_MASTER"
   },
   "uris": ["$DOWNLOAD_URI"],
-  "portDefinitions": [{"protocol": "tcp", "name": "api"}],
   "container": {
     "type": "DOCKER",
     "docker": {
@@ -157,11 +154,12 @@ sudo cat >> ceph-dcos.json << EOF
   "portDefinitions": [
     {
       "protocol": "tcp",
-      "port": 15000,
+      "port": 5000,
+      "servicePort": 15000,
       "labels": {
         "VIP_0": "/ceph:5000"
       },
-      "name": "ceph"
+      "name": "api"
     }
   ]
 }

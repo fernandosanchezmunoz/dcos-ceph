@@ -14,7 +14,7 @@
 # Prerequisites on the node - CentOS
 
 # 0.0 Root access --  all these are root operations
-sudo su    #need to run all this as root
+sudo su    
 
 # 1
 # Format the extra volume(s), and reset mesos-slave to pick them up

@@ -175,4 +175,4 @@ echo -e "** Marathon-LB available at: http://PUBLIC_NODE_IP:9090/haproxy?stats"
 # expected output
 # there should be an entry for the ceph framework on port 15000
 # use that entry to go to the CEPH admin interface at:
-echo -e "** Ceph Web UI available at: http://PUBLIC_NODE_IP:15000"
+echo -e "** Ceph Web UI available at: http://PUBLIC_NODE_IP:5000"

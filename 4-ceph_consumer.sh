@@ -53,11 +53,13 @@ echo "$SECRETS" |jq .fsid
 # Use the $SECRETS variable exported above to create the Ceph configuration for this node which will be the Ceph client
 
 mkdir -p /etc/ceph
+export HOST_NETWORK=172.31.0.0/20       #Use the value for the network where your DC/OS nodes live.
+rpm --rebuilddb && yum install -y bind-utils
+export MONITORS=$(for i in $(dig srv _mon._tcp.ceph.mesos|awk '/^_mon._tcp.ceph.mesos/'|awk '{print $8":"$7}'); do echo -n $i',';done)
 cat <<-EOF > /etc/ceph/ceph.conf
 [global]
 fsid = $(echo "$SECRETS" | jq .fsid)
-mon host = $(curl leader.mesos:8123/v1/services/_mon._tcp.ceph.mesos | jq '. | map(.ip + ":" + .port) | sort | join(",")')
-
+mon host = "${MONITORS::-1}"
 auth cluster required = cephx
 auth service required = cephx
 auth client required = cephx

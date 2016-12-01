@@ -155,7 +155,7 @@ sudo cat >> ceph-dcos.json << EOF
     {
       "protocol": "tcp",
       "port": 5000,
-      "servicePort": 15000,
+      "servicePort": 5000,
       "labels": {
         "VIP_0": "/ceph:5000"
       },

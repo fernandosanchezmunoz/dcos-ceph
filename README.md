@@ -1,3 +1,11 @@
+# NOTE: The functionality that this repo provides has been superceded by the DC/OS Ceph package. A tutorial to run that package can be found here:
+
+https://github.com/dcos/examples/tree/master/1.8/ceph
+
+Please use the DC/OS Ceph package instead.
+
+This repo is kept here temporarily for reference purposes only. It will be eventually removed.
+
 ![DC/OS Logo](https://acomblogimages.blob.core.windows.net/media/Default/Windows-Live-Writer/dcoslogo.png) ![Ceph Logo](http://www.open-v.net/images/openv/o3/icons/ceph.png)
 
 # Ceph on DC/OS

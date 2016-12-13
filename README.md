@@ -1,4 +1,4 @@
-# NOTE: The functionality that this repo provides has been superceded by the DC/OS Ceph package. A tutorial to run that package can be found here:
+# NOTE: The functionality that this repo provides has been superseded by the DC/OS Ceph package. A tutorial to run that package can be found here:
 
 https://github.com/dcos/examples/tree/master/1.8/ceph
 
